@@ -1,0 +1,23 @@
+[
+  {
+    "Account_ID": 1,
+    "UserName": "user1",
+    "Password": "password1",
+    "Role": 1,
+    "TodoList": []
+  },
+  {
+    "Account_ID": 2,
+    "UserName": "user2",
+    "Password": "password2",
+    "Role": 2,
+    "TodoList": []
+  },
+  {
+    "Account_ID": 3,
+    "UserName": "user3",
+    "Password": "password3",
+    "Role": 2,
+    "TodoList": []
+  }
+]
