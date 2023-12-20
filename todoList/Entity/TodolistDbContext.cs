@@ -9,7 +9,7 @@ namespace todoList.Entity
     {
         public DbSet<todolist> Todolists { get; set; }
         public DbSet<account> Accounts { get; set; }
-        public DbSet<CRUD> Cruds { get; set; }
+        
         public TodolistDbContext(DbContextOptions<TodolistDbContext> options)
        : base(options)
         {
