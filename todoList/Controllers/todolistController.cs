@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using todoList.Entity;
+using todoList.Models;
 using todoList.Service;
 
 namespace todoList.Controllers
@@ -38,27 +39,27 @@ namespace todoList.Controllers
 
         // POST api/todolists
         [HttpPost]
-        public ActionResult<ToDolist> Post(ToDolist todolist) 
+        public ActionResult<ToDolist> Post(ToDoListModel toDoListModel) 
         {
-            if (todolist == null) 
+            if (toDoListModel == null) 
             {
                 return BadRequest("Invalid input data.");
             }
-            ToDolist addTodoList = _todoService.AddToDoList(todolist);
+            ToDolist addTodoList = _todoService.AddToDoList(toDoListModel);
             return CreatedAtAction(nameof(GetTodolistById), new {id = addTodoList.Id}, addTodoList);
         }
 
         // PUT api/todolists/{id}
         [HttpPut("{id}")]
-        public IActionResult Put(int id, ToDolist todolist)
+        public IActionResult Put(int id, ToDoListModel toDoListModel)
         {
-            if (todolist == null)
+            if (toDoListModel == null)
             {
                 return BadRequest("Invalid input data.");
             }
             try
             {
-                _todoService.UpdateTodoList(id, todolist);
+                _todoService.UpdateTodoList(id, toDoListModel);
                 return NoContent();
             }
             catch (KeyNotFoundException)
