@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace todoList.Models
+namespace todoList.Entity
 {
-    public class todolist
+    public class ToDolist
     {
         [Key]
         public int Id { get; set; } = 0;
@@ -12,9 +12,9 @@ namespace todoList.Models
         [StringLength(100)]
         public string Name { get; set; } = "";
         public bool IsComplete { get; set; } = false;
-        public DateTime? Created_at { get; set; } 
-        public DateTime? Complete_at { get; set; } 
+        public DateTime? Created_at { get; set; }
+        public DateTime? Complete_at { get; set; }
         public int Priority { get; set; } = 0;
-        public account Account { get; set; }
+        public Account Account { get; set; }
     }
 }

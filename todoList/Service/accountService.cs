@@ -1,6 +1,6 @@
 ﻿namespace todoList.Service
 {
-    public class accountService
+    public class AccountService
     {
     }
 }

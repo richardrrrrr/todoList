@@ -1,5 +1,4 @@
 ﻿using todoList.Entity;
-using todoList.Models;
 
 namespace todoList.Service
 {
@@ -11,33 +10,34 @@ namespace todoList.Service
             _context = context;
         }
 
-        public IEnumerable<todolist> GetTodolists()
+        public IEnumerable<ToDolist> GetTodolists()
         {
             return _context.Todolists.ToList();
         }
 
-        public todolist GetTodoById(int id) 
+        public ToDolist GetTodoById(int id) 
         {
             return _context.Todolists.Find(id);
         }
 
-        public todolist AddToDoList(todolist todolist) 
+        public ToDolist AddToDoList(ToDolist todolist) 
         {
             _context.Todolists.Add(todolist);
             _context.SaveChanges();
             return todolist;
         }
 
-        public void UpdateTodoList(int id, todolist todolist) 
+        public void UpdateTodoList(int id, ToDolist todolist) 
         {
             var existingTodoList = _context.Todolists.Find(id);
+
             if (existingTodoList != null)
             {
                 throw new KeyNotFoundException("Cannot find the specified TodoList");
             }
 
-            _context.Entry(existingTodoList).CurrentValues.SetValues(UpdateTodoList);
-            _context.SaveChanges();
+			_context.Todolists.Update(existingTodoList);
+			_context.SaveChanges();
         }
 
         public void DeleteTodoList(int id) 

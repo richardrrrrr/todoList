@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using todoList.Models;
+using todoList.Entity;
 using todoList.Service;
 
 namespace todoList.Controllers
@@ -18,7 +18,7 @@ namespace todoList.Controllers
 
         // GET api/todolists
         [HttpGet]
-        public ActionResult<IEnumerable<todolist>> GetTodolists()
+        public ActionResult<IEnumerable<ToDolist>> GetTodolists()
         {
             var todolist = _todoService.GetTodolists();
             return Ok(todolist);
@@ -26,7 +26,7 @@ namespace todoList.Controllers
 
         // GET api/todolists/{id}
         [HttpGet("{id}")]
-        public ActionResult<todolist> GetTodolistById(int id) 
+        public ActionResult<ToDolist> GetTodolistById(int id) 
         {
             var todolist = _todoService.GetTodoById(id);
             if (todolist == null) 
@@ -38,19 +38,19 @@ namespace todoList.Controllers
 
         // POST api/todolists
         [HttpPost]
-        public ActionResult<todolist> Post(todolist todolist) 
+        public ActionResult<ToDolist> Post(ToDolist todolist) 
         {
             if (todolist == null) 
             {
                 return BadRequest("Invalid input data.");
             }
-            todolist addTodoList = _todoService.AddToDoList(todolist);
+            ToDolist addTodoList = _todoService.AddToDoList(todolist);
             return CreatedAtAction(nameof(GetTodolistById), new {id = addTodoList.Id}, addTodoList);
         }
 
         // PUT api/todolists/{id}
         [HttpPut("{id}")]
-        public IActionResult Put(int id, todolist todolist)
+        public IActionResult Put(int id, ToDolist todolist)
         {
             if (todolist == null)
             {
