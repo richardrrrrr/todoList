@@ -17,7 +17,7 @@ namespace todoList.Controllers
             _todoService = todoService;
         }
 
-        // GET api/todolists
+        // GET api/todolist
         [HttpGet]
         public ActionResult<IEnumerable<ToDolist>> GetTodolists()
         {
@@ -25,7 +25,7 @@ namespace todoList.Controllers
             return Ok(todolist);
         }
 
-        // GET api/todolists/{id}
+        // GET api/todolist/{id}
         [HttpGet("{id}")]
         public ActionResult<ToDolist> GetTodolistById(int id) 
         {
@@ -37,7 +37,7 @@ namespace todoList.Controllers
             return todolist;
         }
 
-        // POST api/todolists
+        // POST api/todolist
         [HttpPost]
         public ActionResult<ToDolist> Post(ToDoListModel toDoListModel) 
         {
@@ -49,7 +49,7 @@ namespace todoList.Controllers
             return CreatedAtAction(nameof(GetTodolistById), new {id = addTodoList.Id}, addTodoList);
         }
 
-        // PUT api/todolists/{id}
+        // PUT api/todolist/{id}
         [HttpPut("{id}")]
         public IActionResult Put(int id, ToDoListModel toDoListModel)
         {
@@ -68,7 +68,7 @@ namespace todoList.Controllers
             }
         }
 
-        // DELETE api/todolists/{id}
+        // DELETE api/todolist/{id}
         [HttpDelete("{id}")]
         public IActionResult Delete(int id) 
         {
