@@ -1,6 +1,6 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
     fetchToDoLists();
-    /*createToDoList();*/
+  
 });
 
 
@@ -48,7 +48,7 @@ function displayToDoList(data) {
 
 
 
-/*function createToDoList() {
+function createToDoList() {
     const nameInput = document.getElementById('recipient-name');
     const priorityInput = document.getElementById('message-text');
     const currentDate = new Date(); 
@@ -89,5 +89,5 @@ function displayToDoList(data) {
 
 postButton = document.getElementById('sendButton');
 postButton.addEventListener('click', createToDoList);
-*/
+
 
