@@ -41,8 +41,6 @@ namespace todoList.Service
         public void UpdateTodoList(int id, ToDoListModel toDoListModel) 
         {
 
-
-
 			var existingTodoList = _context.Todolists.Find(id);
 
 			if (existingTodoList == null)
