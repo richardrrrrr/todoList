@@ -10,7 +10,7 @@ namespace todoList.Service
         public readonly TodolistDbContext _context;
         public AccountService(TodolistDbContext context) 
         {
-            context = _context;
+            _context = context;
         }
 
 
